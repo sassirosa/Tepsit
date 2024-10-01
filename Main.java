@@ -62,6 +62,7 @@ public class Main {
 						num = contatore[i].getNum();
 						finito = false;
 						 System.out.println("Thread " + i + ": " + num);
+						 System.out.println("Stato: " + threads[i].getState());
 					}else {
 						System.out.println("Thread " + i + ": COMPLETATO");
 					}
