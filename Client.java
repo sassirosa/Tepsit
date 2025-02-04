@@ -8,11 +8,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-/**
- * 
- * @author Stefano Lenzi &lt; stefano@lenzi.pro &gt;
- * 
- */
+
 public class Client {
 
 	private static final int MAX_TRY = 3;
