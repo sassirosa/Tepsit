@@ -24,7 +24,7 @@ Il progetto **HelloWeb** ha le seguenti funzionalità principali:
 
 3. **API REST**:
    - È presente una API REST che risponde alla richiesta `/api/test/eleonora` con un messaggio predefinito.
-     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!NON FUNZIONA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   
    
 ## Componenti Utilizzati
 
