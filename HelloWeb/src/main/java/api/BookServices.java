@@ -1,5 +1,7 @@
 package api;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -14,6 +16,9 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import com.google.gson.Gson;
+
+
 
 @Path("books")
 public class BookServices {
@@ -61,11 +66,22 @@ public class BookServices {
 		book.setAuthors(authors);
 		return book;
 	}
-	@POST
-	public Response add(Book book) throws URISyntaxException {
-		long newId = 3;
-		return Response.created(new URI("api/books/" + newId)).build();
-	}
+	  @POST
+	    public Response add(Book book) throws URISyntaxException {
+	        long newId = 3;  // In un caso reale, il nuovo ID sarebbe generato automaticamente.
+	        
+	        // Serializza l'oggetto Book in formato JSON e salvalo in un file
+	        Gson gson = new Gson();
+	        try (FileWriter writer = new FileWriter("book" + newId + ".json")) {
+	            gson.toJson(book, writer);  // Serializza e scrivi nel file
+	            System.out.println("Book salvato nel file book" + newId + ".json");
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
+
+	        // Restituisci una risposta con URI per la risorsa appena creata
+	        return Response.created(new URI("books/" + newId)).build();
+	    }
 	@PUT
 	@Path("{id}")
 	public Response update(@PathParam("{id}") long id, Book book) {
